@@ -1,5 +1,6 @@
-angular-styleguide
+Angular App with KSS Styleguide
 ============
+A Gulp managed Angular scaffold with KSS styleguides for automated style documentation.
 
 ## Development
 
@@ -12,6 +13,8 @@ gulp serve
 Then head to `http://localhost:3000` in your browser.
 
 The `serve` tasks starts a static file server, which serves the AngularJS application, and a watch task which watches all files for changes and lints, builds and injects them into the index.html accordingly.
+
+This also generates and serves a KSS generated style guide at `/styleguide` in your app.
 
 ## Tests
 
@@ -41,4 +44,5 @@ To make the app ready for deploy to production run:
 gulp dist
 ```
 
-Now there's a `./dist` folder with all scripts and stylesheets concatenated and minified, also third party libraries installed with bower will be concatenated and minified into `vendors.min.js` and `vendors.min.css` respectively.
+Now there's a `./dist` folder with all scripts and stylesheets concatenated and minified, also third party libraries installed with bower will be concatenated and minified into `vendors.min.js` and `vendors.min.css` respectively. At `./dist/styleguide/` you'll find your generated style guide.
+

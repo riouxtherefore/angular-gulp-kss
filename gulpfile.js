@@ -51,7 +51,7 @@ gulp.task('clean-css', function (done) {
   rimraf('./.tmp/css', done);
 });
 
-gulp.task('styles', ['clean-css','kss-tmp'], function () {
+gulp.task('styles', ['clean-css'], function () {
   return gulp.src([
     './src/app/**/*.scss',
     '!./src/app/**/_*.scss'
@@ -169,7 +169,7 @@ gulp.task('watch', ['statics', 'default'], function () {
   });
   gulp.watch('./src/app/index.html', ['index']);
   gulp.watch(['./src/app/**/*.html', '!./src/app/index.html'], ['templates']);
-  gulp.watch(['./src/app/**/*.scss'], ['csslint']).on('change', function (evt) {
+  gulp.watch(['./src/app/**/*.scss'], ['csslint','kss-tmp']).on('change', function (evt) {
     if (evt.type !== 'changed') {
       gulp.start('index');
     } else {
@@ -181,7 +181,7 @@ gulp.task('watch', ['statics', 'default'], function () {
 /**
  * Default task
  */
-gulp.task('default', ['lint', 'build-all']);
+gulp.task('default', ['lint', 'build-all','kss-tmp']);
 
 /**
  * Lint everything
